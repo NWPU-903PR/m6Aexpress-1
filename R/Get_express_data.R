@@ -16,9 +16,9 @@ Get_express_data <- function(INPUT_BAM, TREATED_INPUT_BAM=character(0),annot_fil
     tans_name <- select(org_db, keys=gene_ID, columns = c("SYMBOL"),keytype="ENTREZID")
   }
   if(species=="yeast"){
-    org_db <- org.Mm.eg.db
+    org_db <- org.Sc.sgd.db
+    tans_name <- select(org.Sc.sgd.db, keys=yeast_name, columns = "GENENAME",keytype="ORF")
   }
-  
   gene_name <- as.character(tans_name[,2]) 
   gene_countsdata <- cbind(gene_name, countmatrixgene)
   gene_countdata <- as.data.frame(gene_countsdata)
