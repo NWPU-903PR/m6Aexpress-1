@@ -18,17 +18,6 @@ from scipy.stats import nbinom
 from scipy.special import digamma
 import statsmodels.sandbox as sms
 from scipy.special import polygamma
-## Caculate the raw disp
-
-
-
-
-    ## caculate the adjust shrinkage disp
-
-        
-
-        
-        
 
 def fun_R_call(input_file, size_factor):
 
