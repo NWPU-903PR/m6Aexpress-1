@@ -1,0 +1,19 @@
+Package: m6AExpress
+Type: Package
+Title: The Association between Differential methylation and Differential gene expression
+Version: 0.1.0
+Date: 2019-12-18
+Author: Teng Zhang
+Maintainer: Teng Zhang <tengzhang156@126.com>
+Description: The package is designed to build and test the association between differential m6A methylation adn differential geen expression.
+License: GPL-2
+Encoding: UTF-8
+BuildVignettes: yes
+Depends: exomePeak, QNB, reshape2, gdata, reticulate, rtracklayer,stringr, org.Hs.eg.db, org.Sc.sgd.db, RbashGEO, TxDb.Hsapiens.UCSC.hg19.knownGene,
+         TxDb.Scerevisiae.UCSC.sacCer3.sgdGene, DESeq2, readr, DESeq, SummarizedExperiment, aod, ggplot2, STRINGdb,grid,
+          GenomicFeatures, GenomicRanges, AnnotationDbi, GenomicAlignments,S4Vectors, scales
+Suggests: BiocStyle
+biocViews: Sequencing, Alignment, DataImport,RNASeq,MethylSeq, Transcription, Coverage
+NeedsCompilation: no
+Packaged: 2019-12-20 22:30:05 UTC; bioinfo
+RoxygenNote: 5.0.0
