@@ -13,5 +13,6 @@ match_expr_methy <- function(gene_count_infor, decay_methy){
     match_data <- rbind(match_data, match_methy_expr)
     
   }
-  return(match_data)
+  m6A_express_input <- list(match_data,size_factor)
+  return(m6A_express_input)
 }
