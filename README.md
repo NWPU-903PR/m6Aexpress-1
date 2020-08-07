@@ -33,5 +33,9 @@ The following command code will show how to use this package and output m6A meth
 
 > INPUT\_BAM <- c(f5,f6,f7,f8)
 
-#### We use GTF file in the following example.
+### We use GTF file in the following example.
 > gtf <- system.file("extdata", "hg19toy.gtf", package="m6A-express")
+
+### Predict m6A regulated expression gene by m6A-express model
+
+
