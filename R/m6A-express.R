@@ -102,7 +102,7 @@ m6A_Express_model <- function(Input_file,CUTOFF_TYPE,pvalue, FDR,out_dir){
     }
   if (CUTOFF_TYPE =="pvalue") {
     select_adjbeta <- padj_beta[padj_beta$pvalue<pvalue,]
-    write.table(select_adjbeta,file=paste(out_dir,"m6A-express_result.xls",sep="/"), sep="\t",row.names =TRUE,quote = FALSE)
+    write.table(select_adjbeta,file=paste(out_dir, "m6A-express_result.xls",sep="/"), sep="\t",row.names =TRUE,quote = FALSE)
 
     }
 
