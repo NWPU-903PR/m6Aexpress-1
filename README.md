@@ -30,3 +30,8 @@ The following command code will show how to use this package and output m6A meth
 > f8 <- system.file("extdata", "Input4.bam", package="m6A-express")
 
 > IP\_BAM <- c(f1,f2,f3,f4)
+
+> INPUT\_BAM <- c(f5,f6,f7,f8)
+
+#### We use GTF file in the following example.
+> gtf <- system.file("extdata", "hg19toy.gtf", package="m6A-express")
