@@ -1,5 +1,5 @@
 m6A_Express <- function(express_data, treated_express_data=character(0),
-                        annot_file="hg19",species="human",isPairedEnd=FALSE,
+                        annot_type="hg19",species="human",isPairedEnd=FALSE,
                         conditions=character(0),GENE_ANNO_GTF=NULL,
                         IP_BAM, INPUT_BAM,TREATED_IP_BAM=character(0), TREATED_INPUT_BAM=character(0),
                         GENOME = NA, UCSC_TABLE_NAME = "knownGene", model="auto",
@@ -13,7 +13,7 @@ m6A_Express <- function(express_data, treated_express_data=character(0),
   ##get gene read count
   print("Get reads count for each gene. It may spend some minutes.")
   gene_express_data <- Get_express_data(INPUT_BAM=express_data, TREATED_INPUT_BAM=treated_express_data,
-                                        annot_file=annot_file,species=species,isPairedEnd=isPairedEnd,
+                                        annot_file=annot_type,species=species,isPairedEnd=isPairedEnd,
                                         annot.ext=GENE_ANNO_GTF)
   ##get peak sites infor
   print("Do peak calling. It may spend some hours.")
