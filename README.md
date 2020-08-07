@@ -11,7 +11,7 @@ The Trumpet package can be installed by the following R commands:
 
 # Usage Example
 The following command code will show how to use this package and output m6A methylation regulated expression gene in excel files
-## In basic mode: pooled samples from one or multiple conditions together and identify m6A regulated expression gene in a specific context.
+## Basic mode: pooled samples from one or multiple conditions together and identify m6A regulated expression gene in a specific context.
 ### Input the RNA-seq data and MeRIP-seq data from BAM files.
 > f1 <- system.file("extdata", "IP1.bam", package="m6A-express")
 
@@ -28,3 +28,5 @@ The following command code will show how to use this package and output m6A meth
 > f7 <- system.file("extdata", "Input3.bam", package="m6A-express")
  
 > f8 <- system.file("extdata", "Input4.bam", package="m6A-express")
+
+> IP\_BAM <- c(f1,f2,f3,f4)
