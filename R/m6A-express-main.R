@@ -17,6 +17,7 @@ m6A_Express <- function(express_data, treated_express_data=character(0),
                                         annot.ext=GENE_ANNO_GTF)
   ##get peak sites infor
   print("Do peak calling. It may spend some hours.")
+  if (is.na(OUTPUT_DIR)) {OUTPUT_DIR=getwad()} else {OUTPUT_DIR=OUTPUT_DIR}
   get_peak_site <- Get_peakinfor(IP_BAM=IP_BAM, INPUT_BAM=INPUT_BAM,TREATED_IP_BAM=TREATED_IP_BAM,
                                  TREATED_INPUT_BAM=TREATED_INPUT_BAM, species=species,
                                  GENOME = GENOME, UCSC_TABLE_NAME = UCSC_TABLE_NAME, GENE_ANNO_GTF=GENE_ANNO_GTF, TXDB=TXDB, OUTPUT_DIR=OUTPUT_DIR)
