@@ -37,5 +37,8 @@ The following command code will show how to use this package and output m6A meth
 > gtf <- system.file("extdata", "hg19toy.gtf", package="m6A-express")
 
 ### Predict m6A regulated expression gene by m6A-express model
+> m6A_reg_expr_gene <- m6A_Express(express_data=INPUT_BAM, annot_type="hg19", GENE_ANNO_GTF=gtf, IP_BAM=IP_BAM, INPUT_BAM=INPUT_BAM,pvalue=0.05)
+
+## DE-DM mode: In this case, we will detect whether the differential m6A methylation peak sites regulated expression that caused the differential expression genes
 
 
