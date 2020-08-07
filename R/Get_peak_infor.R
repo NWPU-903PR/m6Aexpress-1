@@ -1,6 +1,6 @@
 ##Get peak site and peak information for each gene
 Get_peakinfor <- function(IP_BAM, INPUT_BAM,TREATED_IP_BAM=character(0),
-                          TREATED_INPUT_BAM=character(0), SPECIES="human"
+                          TREATED_INPUT_BAM=character(0), species="human",
                           GENOME = NA, UCSC_TABLE_NAME = "knownGene", GENE_ANNO_GTF=NA, TXDB=NA, OUTPUT_DIR= NA){
   IP_bam <- c(IP_BAM, TREATED_IP_BAM)
   INPUT_bam <- c(INPUT_BAM, TREATED_INPUT_BAM)
@@ -26,21 +26,24 @@ Get_peakinfor <- function(IP_BAM, INPUT_BAM,TREATED_IP_BAM=character(0),
   }
 
   ##Get peak site from bam file
+  if(is.na(OUTPUT_DIR)){
+    OUTPUT_DIR=getwd()
+  }
   result <- exomepeak(GENE_ANNO_GTF=GENE_ANNO_GTF, IP_BAM=IP_bam, INPUT_BAM=INPUT_bam,OUTPUT_DIR=OUTPUT_DIR)
   peak_data <- load(paste0(OUTPUT_DIR,"/exomePeak.Rdata"))
   consisten_peak <- paste0(OUTPUT_DIR,"/con_peak.bed")
   read_peak <- import(consisten_peak)
   read_peak <- as.data.frame(read_peak)
   peak_name <- as.character(read_peak$name)
-  if(SPECIES="human"){
+  if(species="human"){
     org_db <- org.Hs.eg.db
     tans_name <- select(org.Hs.eg.db, keys=peak_name, columns = c("SYMBOL"),keytype= KeyType)
   }
-  if(SPECIES="mouse"){
+  if(species="mouse"){
     org_db <- org.Mm.eg.db
     tans_name <- select(org_db, keys=peak_name, columns = c("SYMBOL"),keytype= KeyType)
   }
-  if(SPECIES="yeast"){
+  if(species="yeast"){
     org_db <- org.Sc.sgd.db
     KeyType="ORF"
     tans_name <- select(org_db, keys=peak_name, columns = c("GENENAME"),keytype= KeyType)
