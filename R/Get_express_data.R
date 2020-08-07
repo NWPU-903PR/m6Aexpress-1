@@ -1,7 +1,7 @@
-Get_express_data <- function(INPUT_BAM, TREATED_INPUT_BAM=character(0),annot_file="hg19",
+Get_express_data <- function(INPUT_BAM, TREATED_INPUT_BAM=character(0),annot_inbuilt="hg19",
                              species="human",isPairedEnd=FALSE,GENE_ANNO_GTF = NULL){
   Input_data <- c(INPUT_BAM, TREATED_INPUT_BAM)
-  gene_count <- featureCounts(Input_data,useMetaFeatures=TRUE, annot.inbuilt=annot_file, isPairedEnd=isPairedEnd, annot.ext = GENE_ANNO_GTF)
+  gene_count <- featureCounts(Input_data,useMetaFeatures=TRUE, annot.inbuilt=annot_inbuilt, isPairedEnd=isPairedEnd, annot.ext = GENE_ANNO_GTF)
   counts_data <- gene_count$counts
   countMatrix <- sapply(as.matrix(counts_data), as.numeric)
   gene_countmatrix <- matrix(countMatrix, nrow=nrow(counts_data), ncol = ncol(counts_data))
