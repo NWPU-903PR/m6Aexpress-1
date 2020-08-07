@@ -9,7 +9,7 @@ m6A_Express <- function(express_data, treated_express_data=character(0),
                         diff_gene_fdr=0.05,
                         diff_peak_pvalue=NA,
                         diff_peak_fdr=0.05,
-                        TXDB=NA, OUTPUT_DIR= NA, experiment_name="m6A-Express_output"){
+                        TXDB=NA, OUTPUT_DIR= NA){
   ##get gene read count
   print("Get reads count for each gene. It may spend some minutes.")
   gene_express_data <- Get_express_data(INPUT_BAM=express_data, TREATED_INPUT_BAM=treated_express_data,
