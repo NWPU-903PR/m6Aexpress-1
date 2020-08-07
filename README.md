@@ -6,6 +6,7 @@ m6A-express is  a tool to identify m6A methylation significantly regulated expre
 # Installation Instructions
 The Trumpet package can be installed by the following R commands:
 > devtools::install_github("tengzhang123/m6A-express")
+
 > library(m6A-express)
 
 # Usage Example
