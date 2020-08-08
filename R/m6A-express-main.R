@@ -2,7 +2,7 @@ m6A_Express <- function(express_data, treated_express_data=character(0),
                         annot_type="hg19",species="human",isPairedEnd=FALSE,
                         conditions=character(0),GENE_ANNO_GTF=NULL,
                         IP_BAM, INPUT_BAM,TREATED_IP_BAM=character(0), TREATED_INPUT_BAM=character(0),
-                        GENOME = NA, UCSC_TABLE_NAME = "knownGene", model="auto",
+                        GENOME = NA, UCSC_TABLE_NAME = "knownGene", model="basic",
                         pvalue=NA,
                         FDR=0.05,
                         diff_gene_pvalue=NA,
@@ -21,7 +21,7 @@ m6A_Express <- function(express_data, treated_express_data=character(0),
   get_peak_site <- Get_peakinfor(IP_BAM=IP_BAM, INPUT_BAM=INPUT_BAM,TREATED_IP_BAM=TREATED_IP_BAM,
                                  TREATED_INPUT_BAM=TREATED_INPUT_BAM, species=species,
                                  GENOME = GENOME, UCSC_TABLE_NAME = UCSC_TABLE_NAME, GENE_ANNO_GTF=GENE_ANNO_GTF, TXDB=TXDB, OUTPUT_DIR=OUTPUT_DIR)
-  if(model=="auto"){
+  if(model=="basic"){
     ##methylation intensity
     print("Calculate methylation intensity for each gene. It may spend some minutes.")
     gene_methyintensity <- peakmethyleveldecay(peak_inform=get_peak_site,txdbinfor=TXDB, species=species)
