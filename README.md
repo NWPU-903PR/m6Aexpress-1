@@ -1,10 +1,11 @@
 # m6A-express: Predicting context-specific m6A regulation of gene expression
 m6A-express is  a tool to identify m6A methylation significantly regulated expression genes in specific context
 
-
+# Pre-install m6A-express
+Before installing m6A-express package, user should have installed python 2.7 software in their platform (Windows systerm or Linux systerm). And some python packages should be installed, such as numpy, statsmodels.api, pandas, scipy. 
 
 # Installation Instructions
-The Trumpet package can be installed by the following R commands:
+The m6A-express package can be installed by the following R commands:
 > devtools::install_github("tengzhang123/m6A-express")
 
 > library(m6A-express)
