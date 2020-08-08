@@ -50,8 +50,7 @@ The following command code will show how to use this package and output m6A meth
 
 > TREATED\_INPUT\_BAM <- c(f7,f8)
 
-> m6A_reg_expr_gene <- m6A_Express(express_data=INPUT_BAM, treated_express_data=TREATED_INPUT_BAM, IP_BAM=IP_BAM, TREATED_IP_BAM=TREATED_IP_BAM,
-                                   INPUT_BAM=INPUT_BAM, TREATED_INPUT_BAM=TREATED_INPUT_BAM,annot_type="hg19", GENE_ANNO_GTF=gtf,pvalue=0.05,mode="DE-DM")
+> m6A_reg_expr_gene <- m6A_Express(express_data=INPUT_BAM, treated_express_data=TREATED_INPUT_BAM, IP_BAM=IP_BAM, TREATED_IP_BAM=TREATED_IP_BAM, INPUT_BAM=INPUT_BAM, TREATED_INPUT_BAM=TREATED_INPUT_BAM,annot_type="hg19", GENE_ANNO_GTF=gtf,pvalue=0.05,mode="DE-DM")
 
 
 
