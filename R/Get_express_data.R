@@ -25,10 +25,9 @@ Get_express_data <- function(INPUT_BAM, TREATED_INPUT_BAM=character(0),annot_typ
     tans_name <- select(org_db, keys=gene_ID, columns = c("GENENAME"),keytype= "ORF")
   }
   gene_name <- as.character(tans_name[,2])
-  rownames(gene_countsdata)  <- gene_name
-  gene_countdata <- as.data.frame(gene_countsdata)
+  rownames(gene_countmatrix)  <- gene_name
+  gene_countdata <- as.data.frame(gene_countmatrix)
   gene_countdata <- na.omit(gene_countdata)
-  rownames(gene_countdata)<-NULL
   Gene_count_infor <- list(gene_countdata, size_factor)
   return(Gene_count_infor)
 }
