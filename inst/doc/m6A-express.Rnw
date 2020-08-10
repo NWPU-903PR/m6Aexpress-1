@@ -36,4 +36,4 @@ options (width=60)
 @
 
 \section{Introduction}
-The \m6A-express{} R-package has been developed 
+The \m6A-express{} R-package has been developed to predict genes whose expressions are regulaed by m6A methylation based on MeRIP-seq samples. \m6A-express{} is based on a negative binomial regression model with pooling prior information across genes to explicitly estimate the sample-to-sample variability between biological replicates and improve the precision and robustness of regression coefficients.
