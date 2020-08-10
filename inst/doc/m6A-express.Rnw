@@ -36,4 +36,4 @@ options (width=60)
 @
 
 \section{Introduction}
-
+The \m6A-express{} R-package has been developed 
