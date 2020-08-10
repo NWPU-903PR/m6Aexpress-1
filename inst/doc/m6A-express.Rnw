@@ -1,6 +1,6 @@
 %% LyX 2.2.1 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
-%\VignetteIndexEntry{m6A-express}
+%\VignetteIndexEntry{An introduction to m6A-express}
 %\VignetteEncoding{UTF-8}
 %\VignetteEngine{knitr::knitr}
 %\VignetteKeywords{m6A-express,gene expression,RNA methylation,m6A, regulation}
@@ -8,4 +8,32 @@
 \documentclass{article}
 \usepackage[sc]{mathpazo}
 \usepackage[T1]{fontenc}
-\usepackage{geometry}
+\usepackage{hyperref}
+
+\newcommand{\Rfunction}[1]{{\texttt{#1}}}
+\newcommand{\Robject}[1]{{\texttt{#1}}}
+\newcommand{\Rpackage}[1]{{\textit{#1}}}
+\newcommand{\Rmethod}[1]{{\texttt{#1}}}
+\newcommand{\Rfunarg}[1]{{\texttt{#1}}}
+\newcommand{\Rclass}[1]{{\textit{#1}}}
+\newcommand{\Rcode}[1]{{\texttt{#1}}}
+
+\newcommand{\software}[1]{\textsf{#1}}
+\newcommand{\R}{\software{R}}
+\newcommand{\m6A-express}{\Rpackage{m6A-express}}
+\newcommand{\bam}{\texttt{BAM}
+
+\title{An Introduction to \Rpackage{m6A-express}}
+\author{Teng Zhang, PhD student}
+\data {Modified: 10 Aug, 2020.}
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+\maketitle
+
+<<options,echo=FALSE>>=
+options (width=60)
+@
+
+\section{Introduction}
+
