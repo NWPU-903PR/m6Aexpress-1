@@ -38,7 +38,26 @@ options (width=60)
 \section{Introduction}
 The \m6A-express{} R-package has been developed to predict genes whose expressions are regulaed by m6A methylation based on MeRIP-seq samples. \m6A-express{} is based on a negative binomial regression model with pooling prior information across genes to explicitly estimate the sample-to-sample variability between biological replicates and improve the precision and robustness of regression coefficients. The inputs of main function \Rpackage{m6A_Express} are RNA-seq data BAM files or INPUT BAM files of MeRIP-seq data, which are used to quantify gene expression, and IP BAM files with paired INPUT BAM files that are used to quantify methylation inensity in \m6A-express{} model. In addition, users need to provide the origianl gene annotation file. The \m6A-express{} package can be used in two scenarios:
 \begin{itemize}
-  \item Predict m6A regulated expression genes under multiple conditions, such as in mutiple tissues context.
-  \item Predict the differential methylation peak sites regulated differential expression genes in specific context.
+  \item Predict m6A regulated expression genes under multiple conditions, such as in mutiple tissues context, and we call it basic mode.
+  \item Predict the differential methylation peak sites regulated differential expression genes in specific context and we call it DE-DM mode.
 \end{itemize}
-Gene annotation can be provided as a GTF file, a \Rclass{TxDb} object, or automatically downloaded from UCSC through the internet. 
+Gene annotation can be provided as a GTF file, a \Rclass{TxDb} object, or automatically downloaded from UCSC through the internet. The \m6A-express{} R-package can predict m6A regulated expression (m6A-reg-exp) genes for different species, such as human, mouse and yeast. 
+
+We will in the next see how the two main functions can be accomplished in a single command. 
+
+\section{Peak Calling}
+Let us firstly load the package and get the toy data (came with the package) ready.
+
+<<input bams files>>=
+library("m6A-express")
+gtf <- system.file("extdata", "example.gtf", package="m6A-express")
+f1 <- system.file("extdata", "IP1.bam", package="m6A-express")
+f2 <- system.file("extdata", "IP2.bam", package="m6A-express")
+f3 <- system.file("extdata", "IP3.bam", package="m6A-express")
+f4 <- system.file("extdata", "IP4.bam", package="m6A-express")
+f5 <- system.file("extdata", "Input1.bam", package="m6A-express")
+f6 <- system.file("extdata", "Input2.bam", package="m6A-express")
+f7 <- system.file("extdata", "Input3.bam", package="m6A-express")
+f8 <- system.file("extdata", "Input4.bam", package="m6A-express")
+@ 
+
