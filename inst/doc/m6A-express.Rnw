@@ -1,1 +1,11 @@
-
+%% LyX 2.2.1 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+%\VignetteIndexEntry{m6A-express}
+%\VignetteEncoding{UTF-8}
+%\VignetteEngine{knitr::knitr}
+%\VignetteKeywords{m6A-express,gene expression,RNA methylation,m6A, regulation}
+%\VignettePackage{m6A-expression}
+\documentclass{article}
+\usepackage[sc]{mathpazo}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
