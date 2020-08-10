@@ -45,7 +45,7 @@ Gene annotation can be provided as a GTF file, a \Rclass{TxDb} object, or automa
 
 We will in the next see how the two main functions can be accomplished in a single command. 
 
-\section{Peak Calling}
+\section{Basic Mode}
 Let us firstly load the package and get the toy data (came with the package) ready.
 
 <<input bams files>>=
