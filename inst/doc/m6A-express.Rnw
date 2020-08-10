@@ -36,4 +36,9 @@ options (width=60)
 @
 
 \section{Introduction}
-The \m6A-express{} R-package has been developed to predict genes whose expressions are regulaed by m6A methylation based on MeRIP-seq samples. \m6A-express{} is based on a negative binomial regression model with pooling prior information across genes to explicitly estimate the sample-to-sample variability between biological replicates and improve the precision and robustness of regression coefficients. The inputs of main function \Rpackage{m6A_Express} are RNA-seq data BAM files or INPUT BAM files of MeRIP-seq data, which are used to quantify gene expression, and IP BAM files with paired INPUT BAM files that are used to quantify methylation inensity in \m6A-express{} model. In addition, users need to provide the origianl gene annotation file. The \m6A-express{} package can be used in two scenarios 
+The \m6A-express{} R-package has been developed to predict genes whose expressions are regulaed by m6A methylation based on MeRIP-seq samples. \m6A-express{} is based on a negative binomial regression model with pooling prior information across genes to explicitly estimate the sample-to-sample variability between biological replicates and improve the precision and robustness of regression coefficients. The inputs of main function \Rpackage{m6A_Express} are RNA-seq data BAM files or INPUT BAM files of MeRIP-seq data, which are used to quantify gene expression, and IP BAM files with paired INPUT BAM files that are used to quantify methylation inensity in \m6A-express{} model. In addition, users need to provide the origianl gene annotation file. The \m6A-express{} package can be used in two scenarios:
+\begin{itemize}
+  \item Predict m6A regulated expression genes under multiple conditions, such as in mutiple tissues context.
+  \item Predict the differential methylation peak sites regulated differential expression genes in specific context.
+\end{itemize}
+Gene annotation can be provided as a GTF file, a \Rclass{TxDb} object, or automatically downloaded from UCSC through the internet. 
