@@ -61,3 +61,7 @@ f7 <- system.file("extdata", "Input3.bam", package="m6A-express")
 f8 <- system.file("extdata", "Input4.bam", package="m6A-express")
 @ 
 
+In the first scenario, \Rfunction {m6A-express} R-pacakge is to predict m6A-reg-exp genes in one condition or multiple conditions. The input data includes the gene annotation GTF file, gene expression data (Input samples of MeRIP-seq data), IP and Input samples of MeRIP-seq data in BAM format.
+<<Basic Mode>>==
+m6A_reg_expr_gene <- m6A_Express(express_data=INPUT_BAM, IP_BAM=IP_BAM, INPUT_BAM=INPUT_BAM, 
+                                 annot_type="hg19", GENE_ANNO_GTF=gtf, pvalue=0.05,mode="basic")
