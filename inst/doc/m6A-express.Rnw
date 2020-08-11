@@ -69,3 +69,17 @@ m6A_reg_expr_gene <- m6A_Express(express_data=INPUT_BAM, IP_BAM=IP_BAM, INPUT_BA
 The results will be saved in the specified output directory, including the m6A peak calling result by \Rfunction {exomePeak} R-package, the paired reads count and methylation intensity for each gene in tab-delimited text file and m6A-reg-expr genes in .XLS (tab-delimited) format file.
 
 The peak calling result are detailedly explained in \Rfunction {exomePeak} R-package. The first column in tab-delimited text file is the given gene name and other columns show the paired reads count and methylation intensity of each gene. The prediction result of \Rfunction {m6A-express} includes five columns given the gene name, Beta0, Beta1, pvalue and FDR: 
+\begin{itemize}
+  \item gene name - The name of m6A methylation regulated expression gene in the given annotation file.  
+  \item Beta0 - Beta0 is a gene-specific intercept and models the baseline log gene expression.
+  \item Beta1 - Beta1 captures the influence of m6A methylation on gene expression.
+  \item pvalue - Defines the name of gene on which the RNA methylation site locates
+  \item score - pvalue of the peak
+  \item strand - Defines the strand - either '+' or '-'. This is inferred based on gene annotation.
+  \item thickStart - The same as "chromStart". The starting position of the methylation site in the chromosome or scaffold. 
+  \item thickEnd - The same as "chromEnd". The ending position of the methylation site in the chromosome or scaffold.
+  \item itemRgb - always 0
+  \item blockCount - The number of blocks (exons) the RNA methylation site spans. 
+  \item blockSizes - A comma-separated list of the block sizes. The number of items in this list should correspond to blockCount.
+  \item blockStarts - A comma-separated list of block starts. All of the blockStart positions should be calculated relative to chromStart. The number of items in this list should correspond to blockCount. 
+\end{itemize}
