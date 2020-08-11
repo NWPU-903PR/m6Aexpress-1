@@ -156,7 +156,8 @@ f7 <- system.file("extdata", "Input3.bam", package="m6A-express")
 f8 <- system.file("extdata", "Input4.bam", package="m6A-express")
 IP_BAM <- c(f1,f2,f3,f4)
 INPUT_BAM <- c(f5,f6,f7,f8)
-# Input the annotation file.
+
+# Input the annotation file
 gtf <- system.file("extdata", "hg19toy.gtf", package="m6A-express")
 
 # Predict m6A-reg-exp gene by m6A-express model
@@ -164,13 +165,18 @@ m6A_reg_exp_gene <- m6A_express(express_data=INPUT_BAM, IP_BAM=IP_BAM, INPUT_BAM
 
 # DE-DM mode: Predict the differential methylation peak sites regulated differential expression genes
 ## Do not to run the following code because of very little numberic DE-DM genes for the input toy BAM files
-###IP_BAM <- c(f1,f2)
-###TREATED_IP_BAM <- c(f3,f4)
-###INPUT_BAM <- c(f5,f6)
-###TREATED_INPUT_BAM <- c(f7,f8)
-###m6A_reg_exp_gene <- m6A_express(express_data=INPUT_BAM, treated_express_data=TREATED_INPUT_BAM, IP_BAM=IP_BAM, TREATED_IP_BAM=TREATED_IP_BAM, INPUT_BAM=INPUT_BAM, TREATED_INPUT_BAM=TREATED_INPUT_BAM,annot_type="hg19", GENE_ANNO_GTF=gtf,pvalue=0.05,mode="DE-DM")
-}
+
+\dontrun{
+# Input BAM files
+IP_BAM <- c(f1,f2)
+TREATED_IP_BAM <- c(f3,f4)
+INPUT_BAM <- c(f5,f6)
+TREATED_INPUT_BAM <- c(f7,f8)
+
+# Predict m6A-reg-exp genes out from DE-DM genes
+m6A_reg_exp_gene <- m6A_express(express_data=INPUT_BAM, treated_express_data=TREATED_INPUT_BAM, IP_BAM=IP_BAM, TREATED_IP_BAM=TREATED_IP_BAM, INPUT_BAM=INPUT_BAM, TREATED_INPUT_BAM=TREATED_INPUT_BAM,annot_type="hg19", GENE_ANNO_GTF=gtf,pvalue=0.05,mode="DE-DM")
+}}
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+%\keyword{}
+%\keyword{}% __ONLY ONE__ keyword per line
