@@ -5,7 +5,7 @@
 Assessment the regulation of m6A methylation on gene expression
 }
 \description{
-The package is designed to build the relationship between m6A methylation and gene expression by negative binomial regression model in small sample scenario. And test whether the dynamic m6A methylation level can regulate the change of gene expression.
+The package is designed to predict genes whose expressions are regulaed by m6A methylation based on a negative binomial regression model with pooling prior information across genes to explicitly estimate the sample-to-sample variability between biological replicates and improve the precision and robustness of regression coefficients, which is suitable for MeRIP-seq data in small sample scenario. The inputs of m6A\-express are RNA-seq data BAM files or INPUT control BAM files of MeRIP-seq data, which are used to quantify gene expression, and IP BAM files with paired INPUT BAM files that are used to quantify methylation inensity in m6A\-express model. In addition, users need to provide the origianl gene annotation file, such as GTF or TXDB format file. 
 }
 \usage{
 m6A_Express(control_express,
