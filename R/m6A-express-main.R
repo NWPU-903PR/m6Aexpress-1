@@ -1,4 +1,4 @@
-m6A_Express <- function(express_data, treated_express_data=character(0),
+m6A_express <- function(express_data, treated_express_data=character(0),
                         IP_BAM, INPUT_BAM,TREATED_IP_BAM=character(0),TREATED_INPUT_BAM=character(0),
                         annot_type="hg19",species="human",isPairedEnd=FALSE,
                         ,isGTFAnnotationFile=FALSE,
@@ -59,11 +59,11 @@ m6A_Express <- function(express_data, treated_express_data=character(0),
     print("Identify differential expression gene are regulated by differential methylation peak.")
     paired_expr_methy <- match_expr_methy(gene_count_infor=DE_gene, decay_methy=gene_methyintensity,OUTPUT_DIR=OUTPUT_DIR)
     if (is.na(pvalue)) {CUTOFF_TYPE="padj"} else  {CUTOFF_TYPE="pvalue"} 
-    m6Areg_expr_gene <- m6A_Express_model(Input_file=paired_expr_methy,CUTOFF_TYPE=CUTOFF_TYPE,pvalue=pvalue,
+    m6Areg_expr_gene <- m6A_express_model(Input_file=paired_expr_methy,CUTOFF_TYPE=CUTOFF_TYPE,pvalue=pvalue,
                                           FDR=FDR, out_dir=OUTPUT_DIR)
     
     ##add log2foldchange and difference degree methylation
-    m6A_express_addLFC_DDM <- add_LFC_DDM(expre_methyre=m6Areg_expr_gene, DE_gene=DE_gene, methy_distdecay=DM_methy)
+    m6A_express_addLFC_DDM <- add_LFC_DDM(expre_methyre=m6Areg_expr_gene, DE_gene=DE_gene, methy_distdecay=DM_methy,OUTPUT_DIR=OUTPUT_DIR)
 
   }
   
