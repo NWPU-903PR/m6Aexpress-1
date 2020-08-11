@@ -13,7 +13,7 @@ The m6A-express package can be installed by the following R commands:
 # Usage Example
 The following command code will show how to use this package and output m6A methylation regulated expression gene in excel files
 ## Basic mode: pooled samples from one or multiple conditions together and identify m6A regulated expression gene in a specific context.
-### Input the RNA-seq data and MeRIP-seq data from BAM files.
+### Input BAM files.
 > f1 <- system.file("extdata", "IP1.bam", package="m6A-express")
 
 > f2 <- system.file("extdata", "IP2.bam", package="m6A-express")
