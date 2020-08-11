@@ -65,3 +65,5 @@ In the first scenario, \Rfunction {m6A-express} R-pacakge is to predict m6A-reg-
 <<Basic Mode>>==
 m6A_reg_expr_gene <- m6A_Express(express_data=INPUT_BAM, IP_BAM=IP_BAM, INPUT_BAM=INPUT_BAM, 
                                  annot_type="hg19", GENE_ANNO_GTF=gtf, pvalue=0.05,mode="basic")
+@
+The results will be saved in the specified output directory, including the m6A peak calling result by \Rfunction {exomePeak} R-package, the paired reads count and methylation intensity for each gene in tab-delimited text file and m6A-reg-expr genes in .XLS (tab-delimited) format file.
