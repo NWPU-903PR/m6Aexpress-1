@@ -1,9 +1,12 @@
 m6A_Express_model <- function(Input_file,CUTOFF_TYPE,pvalue, FDR,out_dir){
-  py_code <- system.file("extdata", "R_runpython.py", package = "m6A-express")
+  py_code <- system.file("extdata", "R_runpython.py", package = "m6Aexpress")
   source_python(py_code)
   fileNameCount=Input_file[[1]]
   librarySizes=as.numeric(Input_file[[2]])
-  out_result <- fun_R_call(fileNameCount, librarySizes)
+  out_result <- suppressMessages(try(fun_R_call(fileNameCount, librarySizes),silent=TRUE))
+  while(is.null(nrow(out_result))){
+    out_result <- suppressMessages(try(fun_R_call(fileNameCount, librarySizes),silent=TRUE))
+  }
   genecoutmethy <-read.table(fileNameCount,header = T)
   size_factor<-librarySizes
   exprmethyre <- out_result
@@ -98,12 +101,12 @@ m6A_Express_model <- function(Input_file,CUTOFF_TYPE,pvalue, FDR,out_dir){
 
    if (CUTOFF_TYPE =="padj") {
      select_adjbeta <- padj_beta[padj_beta$padj<FDR,]
-     write.table(select_adjbeta,file=paste(out_dir,"m6A-express_result.xls",sep="/"), sep="\t",row.names =FALSE,quote = FALSE)
+     write.table(select_adjbeta,file=paste(out_dir,"m6Aexpress_result","m6A-express_result.xls",sep="/"), sep="\t",row.names =FALSE,quote = FALSE)
 
     }
   if (CUTOFF_TYPE =="pvalue") {
     select_adjbeta <- padj_beta[padj_beta$pvalue<pvalue,]
-    write.table(select_adjbeta,file=paste(out_dir, "m6A-express_result.xls",sep="/"), sep="\t",row.names =FALSE,quote = FALSE)
+    write.table(select_adjbeta,file=paste(out_dir,"m6Aexpress_result", "m6A-express_result.xls",sep="/"), sep="\t",row.names =FALSE,quote = FALSE)
 
     }
 
