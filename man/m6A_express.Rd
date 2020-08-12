@@ -1,5 +1,5 @@
-\name{m6A_express}
-\alias{m6A_express}
+\name{m6Aexpress}
+\alias{m6Aexpress}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
 Predicting context-specific m6A regulation of gene expression
@@ -8,7 +8,7 @@ Predicting context-specific m6A regulation of gene expression
 The package is designed to predict genes whose expressions are regulaed by m6A methylation based on a negative binomial regression model with pooling prior information across genes to explicitly estimate the sample-to-sample variability between biological replicates and improve the precision and robustness of regression coefficients, which is suitable for MeRIP-seq data in small sample scenario.
 }
 \usage{
-m6A_Express(# input files in BAM format
+m6Aexpress(# input files in BAM format
             express_data,
             treated_express_data=character(0),
             IP_BAM,
@@ -97,7 +97,7 @@ A string, which specify the output directory, default: OUTPUT_DIR=NA, the output
 \details{
 In order to analysis the regulation of m6A methylation on gene expression, we develop the R package m6A-express. The inputs of m6A-express are BAM files of RNA-seq data or INPUT BAM files of MeRIP-seq data, which are used to quantify gene expression, and IP BAM files with paired INPUT BAM files that are used to quantify methylation inensity in m6A-express model. For the origianl gene annotation file, such as GTF or TXDB format file, user could provide it or directly use the default in-built annotation file by given the function parameter \code{species}, \code{annot_type}, \code{GENOME} and \code{UCSC_TABLE_NAME = "knownGene"}.
 
-The \code{m6A_express} function is an all-in-one command that performs all the core functions of the m6A-express R-package. The core function of \code{m6A_express} achieved two modes to predict methylation regulated expression genes:
+The \code{m6Aexpress} function is an all-in-one command that performs all the core functions of the m6A-express R-package. The core function of \code{m6A_express} achieved two modes to predict methylation regulated expression genes:
 
 1. Predict m6A regulated expression genes under multiple conditions, such as in mutiple tissues context, and we call it \code{basic} mode.
 
@@ -146,22 +146,22 @@ Teng Zhang <tengzhang156@126.com>
 \examples{
 # Basic mode: pooled samples from one or multiple conditions together and identify m6A-reg-exp gene in a specific context.
 # Input BAM files
-f1 <- system.file("extdata", "IP1.bam", package="m6A-express")
-f2 <- system.file("extdata", "IP2.bam", package="m6A-express")
-f3 <- system.file("extdata", "IP3.bam", package="m6A-express")
-f4 <- system.file("extdata", "IP4.bam", package="m6A-express")
-f5 <- system.file("extdata", "Input1.bam", package="m6A-express")
-f6 <- system.file("extdata", "Input2.bam", package="m6A-express")
-f7 <- system.file("extdata", "Input3.bam", package="m6A-express")
-f8 <- system.file("extdata", "Input4.bam", package="m6A-express")
+f1 <- system.file("extdata", "IP1.bam", package="m6Aexpress")
+f2 <- system.file("extdata", "IP2.bam", package="m6Aexpress")
+f3 <- system.file("extdata", "IP3.bam", package="m6Aexpress")
+f4 <- system.file("extdata", "IP4.bam", package="m6Aexpress")
+f5 <- system.file("extdata", "Input1.bam", package="m6Aexpress")
+f6 <- system.file("extdata", "Input2.bam", package="m6Aexpress")
+f7 <- system.file("extdata", "Input3.bam", package="m6Aexpress")
+f8 <- system.file("extdata", "Input4.bam", package="m6Aexpress")
 IP_BAM <- c(f1,f2,f3,f4)
 INPUT_BAM <- c(f5,f6,f7,f8)
 
 # Input the annotation file
-gtf <- system.file("extdata", "hg19toy.gtf", package="m6A-express")
+gtf <- system.file("extdata", "hg19toy.gtf", package="m6Aexpress")
 
 # Predict m6A-reg-exp gene by m6A-express model
-m6A_reg_exp_gene <- m6A_express(express_data=INPUT_BAM, IP_BAM=IP_BAM, INPUT_BAM=INPUT_BAM, annot_type="hg19", GENE_ANNO_GTF=gtf, pvalue=0.05,mode="basic")
+m6A_reg_exp_gene <- m6Aexpress(express_data=INPUT_BAM, IP_BAM=IP_BAM, INPUT_BAM=INPUT_BAM, annot_type="hg19", GENE_ANNO_GTF=gtf,isGTFAnnotationFile=TRUE, pvalue=0.05,mode="basic")
 
 # DE-DM mode: Predict the differential methylation peak sites regulated differential expression genes
 ## Do not to run the following code because of very little numberic DE-DM genes for the input toy BAM files
@@ -174,7 +174,7 @@ INPUT_BAM <- c(f5,f6)
 TREATED_INPUT_BAM <- c(f7,f8)
 
 # Predict m6A-reg-exp genes out from DE-DM genes
-m6A_reg_exp_gene <- m6A_express(express_data=INPUT_BAM, treated_express_data=TREATED_INPUT_BAM, IP_BAM=IP_BAM, TREATED_IP_BAM=TREATED_IP_BAM, INPUT_BAM=INPUT_BAM, TREATED_INPUT_BAM=TREATED_INPUT_BAM,annot_type="hg19", GENE_ANNO_GTF=gtf,pvalue=0.05,mode="DE-DM")
+m6A_reg_exp_gene <- m6Aexpress(express_data=INPUT_BAM, treated_express_data=TREATED_INPUT_BAM, IP_BAM=IP_BAM, TREATED_IP_BAM=TREATED_IP_BAM, INPUT_BAM=INPUT_BAM, TREATED_INPUT_BAM=TREATED_INPUT_BAM,annot_type="hg19", GENE_ANNO_GTF=gtf,isGTFAnnotationFile=TRUE, pvalue=0.05,mode="DE-DM")
 }}
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
