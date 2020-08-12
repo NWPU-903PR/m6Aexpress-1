@@ -6,15 +6,15 @@ match_expr_methy <- function(gene_count_infor, decay_methy,OUTPUT_DIR){
   for (i in 1:nrow(gene_count)) {
     for (j in 2:ncol(gene_count)) {
       if(gene_count[i,j]==0){
-        
+
         gene_count[i,j] <- NA
       }
-      
+
     }
-    
+
   }
   select_genecount <- na.omit(gene_count)
-  
+
   size_factor <- gene_count_infor[[2]]
   gene_name <- (as.character(rownames(select_genecount)))
   select_genecount <- as.data.frame(cbind(gene_name,select_genecount))
@@ -30,9 +30,9 @@ match_expr_methy <- function(gene_count_infor, decay_methy,OUTPUT_DIR){
     match_data <- rbind(match_data, match_methy_expr)
 
   }
-  
-  write.table(match_data, file = paste0(OUTPUT_DIR,"expr_methy.tab"), quote = FALSE, row.names = FALSE)
-  out_putfile <- paste0(OUTPUT_DIR,"expr_methy.tab")
+  dir.create(paste0(OUTPUT_DIR,"/m6Aexpress_result"))
+  write.table(match_data, file = paste0(OUTPUT_DIR,"/m6Aexpress_result/","expr_methy.tab"), quote = FALSE, row.names = FALSE)
+  out_putfile <- paste0(OUTPUT_DIR,"/m6Aexpress_result/","expr_methy.tab")
   m6A_express_input <- list(out_putfile,size_factor)
   return(m6A_express_input)
 }
