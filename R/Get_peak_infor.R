@@ -29,11 +29,11 @@ Get_peakinfor <- function(IP_BAM, INPUT_BAM,TREATED_IP_BAM=character(0),
     OUTPUT_DIR=getwd()
   }
   result <- exomepeak(IP_BAM=IP_bam, INPUT_BAM=INPUT_bam,GENE_ANNO_GTF=GENE_ANNO_GTF,
-                      GENOME =  GENOME, UCSC_TABLE_NAME = "knownGene",TXDB=TXDB, 
+                      GENOME =  GENOME, UCSC_TABLE_NAME = "knownGene",TXDB=TXDB,
                       OUTPUT_DIR=OUTPUT_DIR)
-  load(paste0(OUTPUT_DIR,"exomePeak_output/", "exomePeak.Rdata"))
+  load(paste(OUTPUT_DIR,"exomePeak_output", "exomePeak.Rdata",sep="/"))
   peak_data <- tmp_rs
-  consisten_peak <- paste0(OUTPUT_DIR,"exomePeak_output/","con_peak.bed")
+  consisten_peak <- paste(OUTPUT_DIR,"exomePeak_output","con_peak.bed",sep="/")
   read_peak <- import.bed(consisten_peak)
   read_peak <- as.data.frame(read_peak)
   peak_name <- as.character(read_peak$name)
@@ -51,7 +51,7 @@ Get_peakinfor <- function(IP_BAM, INPUT_BAM,TREATED_IP_BAM=character(0),
       KeyType="ORF"
       tans_name <- select(org_db, keys=peak_name, columns = c("GENENAME"),keytype= KeyType)
     }
-    select_peak <-cbind( as.character(read_peak$seqnames) , read_peak$start, read_peak$end,read_peak$width, as.character(read_peak$strand), as.character(tans_name[,2])) 
+    select_peak <-cbind( as.character(read_peak$seqnames) , read_peak$start, read_peak$end,read_peak$width, as.character(read_peak$strand), as.character(tans_name[,2]))
   }
   select_peak <-cbind( as.character(read_peak$seqnames) , read_peak$start, read_peak$end,read_peak$width, as.character(read_peak$strand),as.character(read_peak$name))
   colnames(select_peak) <- c("seqnames", "start", "end", "width", "strand", "gene_name")
